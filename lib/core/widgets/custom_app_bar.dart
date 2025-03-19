@@ -1,51 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:go_router/go_router.dart';
 import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/res/responsive.dart';
 import 'package:portfolio/core/theme/theme.dart';
-import 'package:portfolio/core/utils/utilities.dart';
 import 'package:portfolio/core/widgets/img_wid.dart';
+import 'package:portfolio/core/widgets/navbar_actions_button.dart';
+import 'package:portfolio/cubit/scroll/scroll_cubit.dart';
 import 'package:portfolio/cubit/theme/theme_cubit.dart';
 import 'package:portfolio/features/data/data.dart';
+import 'package:sizer/sizer.dart';
 
 class CustomAppBar extends StatelessWidget {
   const CustomAppBar({
     super.key,
-    required this.currentUrl,
   });
-
-  final String currentUrl;
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    final deviceType = getDeviceType(screenWidth);
-
     return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, themeIndex) {
-        return Hero(
-          tag: "app_bar",
-          child: AppBar(
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                if (deviceType == DeviceType.desktop)
-                  imageAsset(
-                    "assets/imgs/logos/logo_00.png",
-                    fit: BoxFit.cover,
-                    width: 30,
-                  ),
-                if (deviceType == DeviceType.desktop)
-                  _buildDesktopMenu(context)
-                else
-                  const Spacer(),
-                if (deviceType != DeviceType.desktop)
-                  imageAsset(
-                    "assets/imgs/logos/logo_00.png",
-                    fit: BoxFit.cover,
-                    width: 30,
-                  ),
-              ],
+        return Responsive(
+          desktop: _navbarDesktop(context),
+          mobile: _navBarTablet(context),
+          tablet: _navBarTablet(context),
+        );
+      },
+    );
+  }
+
+/*
+  @override
+  Widget build(BuildContext context) {
+    return BlocBuilder<ThemeCubit, ThemeMode>(
+      builder: (context, themeIndex) {
+        return Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: 40,
+          ),
+          child: Hero(
+            tag: "app_bar",
+            child: AppBar(
+              title: (Responsive.isDesktop(context))
+                  ? Row(
+                      children: [
+                        imageAsset(
+                          "assets/imgs/logos/logo_00.png",
+                          fit: BoxFit.cover,
+                          width: 30,
+                        ),
+                        const Spacer(),
+                        _buildDesktopMenu(context),
+                      ],
+                    )
+                  : Row(
+                      children: [
+                        const Spacer(),
+                        imageAsset(
+                          "assets/imgs/logos/logo_00.png",
+                          fit: BoxFit.cover,
+                          width: 30,
+                        ),
+                      ],
+                    ),
             ),
           ),
         );
@@ -78,6 +94,68 @@ class CustomAppBar extends StatelessWidget {
       ],
     );
   }
+*/
+
+  _navbarDesktop(BuildContext context) {
+    final screenSize = MediaQuery.of(context).size;
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: screenSize.width / 8,
+        vertical: 10,
+      ),
+      child: Row(
+        children: [
+          imageAsset(
+            "assets/imgs/logos/logo_00.png",
+            fit: BoxFit.cover,
+            width: 30,
+          ),
+          const Spacer(),
+          ...appBarSectionData.asMap().entries.map(
+                (e) => NavBarActionButton(
+                  label: e.value["name"],
+                  index: e.key,
+                ),
+              ),
+          SizedBox(
+            width: 20,
+          ),
+          _buildThemeToggleButton(
+            context,
+          ),
+        ],
+      ),
+    );
+  }
+
+  _navBarTablet(BuildContext context) {
+    final drawerCubit = context.read<DrawerCubit>();
+    return Padding(
+      padding: EdgeInsets.symmetric(
+        horizontal: Responsive.isTablet(context) ? 10.w : 10,
+        vertical: 10,
+      ),
+      child: Row(
+        children: [
+          IconButton(
+            highlightColor: myWhiteAA,
+            onPressed: () {
+              drawerCubit.openDrawer();
+            },
+            icon: const Icon(
+              Icons.menu,
+            ),
+          ),
+          const Spacer(),
+          imageAsset(
+            "assets/imgs/logos/logo_00.png",
+            fit: BoxFit.cover,
+            width: 30,
+          ),
+        ],
+      ),
+    );
+  }
 
   /// Construit le bouton de changement de thème
   Widget _buildThemeToggleButton(BuildContext context) {
@@ -85,7 +163,8 @@ class CustomAppBar extends StatelessWidget {
 
     final theme = CustomAppTheme.instance;
     final themeMode = context.watch<ThemeCubit>().state;
-    bool isDarkMode = theme.checkDarkMode(context, themeMode);
+    final isDarkMode = theme.checkDarkMode(context, themeMode);
+    final isSysMode = themeMode == ThemeMode.system;
 
     return Row(
       children: [
@@ -98,13 +177,13 @@ class CustomAppBar extends StatelessWidget {
             }
           },
           icon: Icon(
-            themeMode == ThemeMode.system
+            isSysMode
                 ? Icons.brightness_4_rounded
                 : Icons.brightness_4_outlined,
           ),
         ),
         IconButton(
-          onPressed: themeMode == ThemeMode.system
+          onPressed: isSysMode
               ? null
               : () {
                   if (isDarkMode) {
@@ -117,7 +196,7 @@ class CustomAppBar extends StatelessWidget {
             isDarkMode
                 ? Icons.brightness_2_rounded
                 : Icons.brightness_7_rounded,
-            color: themeMode == ThemeMode.system
+            color: isSysMode
                 ? isDarkMode
                     ? myBlack
                     : myWhite

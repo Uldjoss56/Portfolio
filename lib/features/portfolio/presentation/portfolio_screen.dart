@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widgets/custom_app_bar.dart';
-import 'package:portfolio/core/widgets/drawer.dart';
+import 'package:portfolio/core/res/responsive.dart';
+import 'package:portfolio/features/portfolio/presentation/portfolio_desktop.dart';
+import 'package:portfolio/features/portfolio/presentation/portfolio_mobile.dart';
 
 class PortfolioScreen extends StatefulWidget {
   const PortfolioScreen({super.key});
@@ -12,17 +13,10 @@ class PortfolioScreen extends StatefulWidget {
 class _PortfolioScreenState extends State<PortfolioScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50.0),
-        child: CustomAppBar(
-          currentUrl: "/portfolio",
-        ),
-      ),
-      drawer: Hero(
-        tag: "app_bar",
-        child: SideNavMenu(),
-      ),
+    return Responsive(
+      desktop: PortfolioDesktop(),
+      tablet: PortfolioMobile(),
+      mobile: PortfolioMobile(),
     );
   }
 }

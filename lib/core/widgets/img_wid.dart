@@ -38,6 +38,7 @@ Widget imageAsset(
     color: color,
     alignment: alignment,
     scale: scale,
+    opacity: opacity,
     frameBuilder: frameBuilder ??
         (context, child, frame, wasSynchronouslyLoaded) {
           if (wasSynchronouslyLoaded) {

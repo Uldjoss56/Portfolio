@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/res/responsive.dart';
 import 'package:portfolio/core/theme/theme.dart';
-import 'package:portfolio/core/utils/utilities.dart';
 import 'package:portfolio/core/widgets/custom_blur_container.dart';
 import 'package:portfolio/core/widgets/custom_rich_text.dart';
 import 'package:portfolio/core/widgets/img_wid.dart';
@@ -14,9 +14,7 @@ class Footer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
 
-    final deviceType = getDeviceType(screenWidth);
 
     return BlocBuilder<ThemeCubit, ThemeMode>(
       builder: (context, state) {
@@ -53,7 +51,7 @@ class Footer extends StatelessWidget {
                   ),
                 ),
               ),
-              deviceType != DeviceType.smartphone
+              !Responsive.isMobile(context)
                   ? imageAsset(
                       "assets/imgs/logos/logo_0${isDarkMode ? "2" : "1"}.png",
                       width: 50,

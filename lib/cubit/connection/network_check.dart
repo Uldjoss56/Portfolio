@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/features/home/presentation/home_screen.dart';
+import 'package:portfolio/features/main/presentation/main_screen.dart';
 import 'bloc/connected_bloc.dart';
 
 class NetworkChecking extends StatelessWidget {
@@ -22,14 +22,14 @@ class NetworkChecking extends StatelessWidget {
       },
       builder: (context, state) {
         if (state is ConnectedSuccessState) {
-          return const HomeScreen();
+          return const MainScreen();
         }
         // else if (state is ConnectedFailureState) {
         //   return const NoConnectionErorr();
         // }
         else {
           // return Container();
-          return const NoConnectionErorr();
+          return const MainScreen();
           //return const MainPage();
         }
       },

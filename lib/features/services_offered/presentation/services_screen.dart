@@ -1,6 +1,17 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:portfolio/core/widgets/custom_app_bar.dart';
-import 'package:portfolio/core/widgets/drawer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/res/responsive.dart';
+import 'package:portfolio/core/theme/theme.dart';
+import 'package:portfolio/core/widgets/img_wid.dart';
+import 'package:portfolio/cubit/theme/theme_cubit.dart';
+import 'package:portfolio/features/services_offered/data/data.dart';
+import 'package:sizer/sizer.dart';
+
+part 'services_desktop.dart';
+part 'services_mobile.dart';
+part 'widgets/_services_card.dart';
 
 class ServicesScreen extends StatefulWidget {
   const ServicesScreen({super.key});
@@ -12,17 +23,10 @@ class ServicesScreen extends StatefulWidget {
 class _ServicesScreenState extends State<ServicesScreen> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: PreferredSize(
-        preferredSize: const Size.fromHeight(50.0),
-        child: CustomAppBar(
-          currentUrl: "/services",
-        ),
-      ),
-      drawer: Hero(
-        tag: "app_bar",
-        child: SideNavMenu(),
-      ),
+    return Responsive(
+      desktop: ServicesDesktop(),
+      tablet: ServicesMobile(),
+      mobile: ServicesMobile(),
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/cubit/connection/bloc/connected_bloc.dart';
 import 'package:portfolio/cubit/connection/network_check.dart';
+import 'package:portfolio/cubit/scroll/scroll_cubit.dart';
 import 'package:portfolio/cubit/theme/theme_cubit.dart';
 import 'package:portfolio/core/localization/app_local.dart';
 import 'package:portfolio/features/about_me/presentation/about_me_screen.dart';
@@ -12,6 +13,7 @@ import 'package:portfolio/core/theme/theme.dart';
 import 'package:portfolio/features/contacts/presentation/contacts_screen.dart';
 import 'package:portfolio/features/portfolio/presentation/portfolio_screen.dart';
 import 'package:portfolio/features/services_offered/presentation/services_screen.dart';
+import 'package:sizer/sizer.dart';
 import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
@@ -113,22 +115,32 @@ class _MainAppState extends State<MainApp> {
         BlocProvider<ConnectedBloc>(
           create: (context) => ConnectedBloc(),
         ),
+        BlocProvider<ScrollCubit>(
+          create: (context) => ScrollCubit(),
+        ),
+        BlocProvider<DrawerCubit>(
+          create: (context) => DrawerCubit(),
+        ),BlocProvider<SelectedIndexCubit>(
+          create: (context) => SelectedIndexCubit(),
+        ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
         builder: (context, state) {
-          return MaterialApp.router(
-            localizationsDelegates: _localization.localizationsDelegates,
-            supportedLocales: const [
-              Locale('en'),
-              Locale('fr'),
-              Locale('es'),
-            ],
-            themeMode: context.watch<ThemeCubit>().state,
-            theme: theme.lightTheme,
-            darkTheme: theme.darkTheme,
-            debugShowCheckedModeBanner: false,
-            routerConfig: _router,
-          );
+          return Sizer(builder: (context, orientation, deviceType) {
+            return MaterialApp.router(
+              localizationsDelegates: _localization.localizationsDelegates,
+              supportedLocales: const [
+                Locale('en'),
+                Locale('fr'),
+                Locale('es'),
+              ],
+              themeMode: context.watch<ThemeCubit>().state,
+              theme: theme.lightTheme,
+              darkTheme: theme.darkTheme,
+              debugShowCheckedModeBanner: false,
+              routerConfig: _router,
+            );
+          });
         },
       ),
     );

@@ -12,7 +12,6 @@ class ThemeCubit extends Cubit<ThemeMode> {
 
   Future<void> setTheme(ThemeMode themeMode) async {
     final data = await FlutterSecureStorageUtils.setThemeMode(themeMode);
-    print("  ccoo$data $themeMode");
     emit(data);
   }
 }

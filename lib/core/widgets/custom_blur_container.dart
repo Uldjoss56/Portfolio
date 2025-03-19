@@ -16,6 +16,7 @@ class CustomBlurContainer extends StatelessWidget {
   final double? paddingValue;
   final BorderRadiusGeometry? borderRadius;
   final Widget? child;
+
   @override
   Widget build(BuildContext context) {
     final theme = CustomAppTheme.instance;
@@ -24,11 +25,19 @@ class CustomBlurContainer extends StatelessWidget {
     bool isDarkMode = theme.checkDarkMode(context, themeMode);
 
     return ClipRRect(
-      borderRadius: borderRadius ?? BorderRadius.circular(20.0),
+      borderRadius: borderRadius ??
+          BorderRadius.circular(
+            20.0,
+          ),
       child: BackdropFilter(
-        filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+        filter: ImageFilter.blur(
+          sigmaX: 5.0,
+          sigmaY: 5.0,
+        ),
         child: Container(
-          padding: EdgeInsets.all(paddingValue ?? 20),
+          padding: EdgeInsets.all(
+            paddingValue ?? 20,
+          ),
           decoration: BoxDecoration(
             color: !isDarkMode ? myBlack22 : myGrey22,
           ),
