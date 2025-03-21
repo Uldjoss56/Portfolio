@@ -36,7 +36,7 @@ class _AboutMeMobileState extends State<AboutMeMobile> {
               ),
               Text(
                 aboutMe,
-                textAlign: TextAlign.justify,
+                textAlign: TextAlign.center,
                 style: Theme.of(context).textTheme.bodySmall?.copyWith(),
               ),
             ],

@@ -5,6 +5,7 @@ import 'package:portfolio/core/res/responsive.dart';
 import 'package:portfolio/core/theme/theme.dart';
 import 'package:portfolio/core/widgets/img_wid.dart';
 import 'package:portfolio/core/widgets/navbar_actions_button.dart';
+import 'package:portfolio/cubit/language/language_cubit.dart';
 import 'package:portfolio/cubit/scroll/scroll_cubit.dart';
 import 'package:portfolio/cubit/theme/theme_cubit.dart';
 import 'package:portfolio/features/data/data.dart';
@@ -98,6 +99,7 @@ class CustomAppBar extends StatelessWidget {
 
   _navbarDesktop(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
+
     return Container(
       padding: EdgeInsets.symmetric(
         horizontal: screenSize.width / 8,
@@ -112,13 +114,20 @@ class CustomAppBar extends StatelessWidget {
           ),
           const Spacer(),
           ...appBarSectionData.asMap().entries.map(
-                (e) => NavBarActionButton(
-                  label: e.value["name"],
-                  index: e.key,
-                ),
-              ),
+            (e) {
+              return NavBarActionButton(
+                label: e.value["name"],
+                index: e.key,
+              );
+            },
+          ),
           SizedBox(
             width: 20,
+          ),
+          IconButton(
+            icon: const Icon(Icons.language),
+            tooltip: "Changer la langue",
+            onPressed: () => _showLanguageSelector(context),
           ),
           _buildThemeToggleButton(
             context,
@@ -157,7 +166,6 @@ class CustomAppBar extends StatelessWidget {
     );
   }
 
-  /// Construit le bouton de changement de thème
   Widget _buildThemeToggleButton(BuildContext context) {
     final themeCubit = context.read<ThemeCubit>();
 
@@ -204,6 +212,50 @@ class CustomAppBar extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+
+  void _showLanguageSelector(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Choisir la langue"),
+          content: BlocBuilder<LanguageCubit, String>(
+            builder: (context, selectedLang) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  _languageOption(context, "fr", "Français", selectedLang),
+                  _languageOption(context, "en", "English", selectedLang),
+                  _languageOption(context, "es", "Español", selectedLang),
+                ],
+              );
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text("Fermer"),
+            ),
+          ],
+        );
+      },
+    );
+  }
+
+  Widget _languageOption(BuildContext context, String langCode, String langName,
+      String selectedLang) {
+    return ListTile(
+      leading: Icon(
+        selectedLang == langCode ? Icons.check_circle : Icons.circle_outlined,
+        color: selectedLang == langCode ? Colors.blue : Colors.grey,
+      ),
+      title: Text(langName),
+      onTap: () {
+        context.read<LanguageCubit>().changeLanguage(langCode);
+        Navigator.pop(context);
+      },
     );
   }
 }

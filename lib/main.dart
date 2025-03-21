@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/cubit/connection/bloc/connected_bloc.dart';
 import 'package:portfolio/cubit/connection/network_check.dart';
+import 'package:portfolio/cubit/language/language_cubit.dart';
 import 'package:portfolio/cubit/scroll/scroll_cubit.dart';
 import 'package:portfolio/cubit/theme/theme_cubit.dart';
 import 'package:portfolio/core/localization/app_local.dart';
@@ -120,8 +121,12 @@ class _MainAppState extends State<MainApp> {
         ),
         BlocProvider<DrawerCubit>(
           create: (context) => DrawerCubit(),
-        ),BlocProvider<SelectedIndexCubit>(
+        ),
+        BlocProvider<SelectedIndexCubit>(
           create: (context) => SelectedIndexCubit(),
+        ),
+        BlocProvider<LanguageCubit>(
+          create: (context) => LanguageCubit(),
         ),
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(

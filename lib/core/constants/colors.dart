@@ -73,3 +73,21 @@ BoxShadow primaryColorShadow = BoxShadow(
   blurRadius: 12.0,
   offset: const Offset(0.0, 0.0),
 );
+
+BoxShadow blackColorShadow = BoxShadow(
+  color: Colors.black.withAlpha(100),
+  blurRadius: 12.0,
+  offset: const Offset(0.0, 0.0),
+);
+
+const grayBack = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [Color(0XAA2E2D36), Color(0XAA11101D)],
+);
+
+const grayWhite = LinearGradient(
+  begin: Alignment.topLeft,
+  end: Alignment.bottomRight,
+  colors: [myWhiteAA, Color(0xAAF3F2FF)],
+);

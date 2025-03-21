@@ -27,6 +27,7 @@ dependencies:
   scrollable_positioned_list: ^0.3.8
   shared_preferences: ^2.5.2
   sizer: ^3.0.5
+  url_launcher: ^6.3.1
   url_strategy: ^0.3.0
 
 dev_dependencies:
@@ -44,6 +45,7 @@ flutter:
     - assets/imgs/vectors/
     - assets/imgs/logos/
     - assets/imgs/photos/
+    - assets/imgs/photos/projects/
     - assets/animations/
     - assets/models/
   
