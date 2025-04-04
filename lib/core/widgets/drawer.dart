@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio/core/constants/colors.dart';
+import 'package:portfolio/core/res/responsive.dart';
 import 'package:portfolio/core/theme/theme.dart';
 import 'package:portfolio/core/widgets/custom_check_box.dart';
 import 'package:portfolio/core/widgets/img_wid.dart';
@@ -38,7 +39,7 @@ class _SideNavMenuState extends State<SideNavMenu> {
     final selectedIndex = context.watch<SelectedIndexCubit>().state;
 
     return SizedBox(
-      width: 0.5 * screenWidth,
+      width: Responsive.isMobile(context) ? 250 : 300,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(0),
         child: BackdropFilter(
@@ -53,6 +54,9 @@ class _SideNavMenuState extends State<SideNavMenu> {
                 : myWhite.withValues(alpha: 0.5),
             child: Column(
               children: [
+                SizedBox(
+                  height: 20,
+                ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,

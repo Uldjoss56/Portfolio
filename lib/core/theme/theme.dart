@@ -19,7 +19,7 @@ class CustomAppTheme {
   static final instance = CustomAppTheme._();
 
   final lightTheme = ThemeData(
-    colorScheme: const ColorScheme.light(primary: myTurquois),
+    colorScheme:  ColorScheme.light(primary: myTurquois),
     scaffoldBackgroundColor: myWhiteBackground,
     useMaterial3: true,
     brightness: Brightness.light,
@@ -40,7 +40,7 @@ class CustomAppTheme {
   );
 
   final darkTheme = ThemeData(
-    colorScheme: const ColorScheme.dark(
+    colorScheme:  ColorScheme.dark(
       primary: myTurquois,
     ),
     scaffoldBackgroundColor: myBlueBackground,

@@ -30,7 +30,7 @@ class _PortfolioDesktopState extends State<PortfolioDesktop> {
           Text(
             "\nProjects",
             style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                  color: isDarkMode ? myWhite : myBlackAA,
+                  color: isDarkMode ? myWhite : myBlack,
                 ),
           ),
           SizedBox(

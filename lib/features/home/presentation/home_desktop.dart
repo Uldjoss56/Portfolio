@@ -1,15 +1,4 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:portfolio/core/animations/zoom_animation.dart';
-import 'package:portfolio/core/constants/colors.dart';
-import 'package:portfolio/core/theme/theme.dart';
-import 'package:portfolio/core/widgets/custom_rich_text.dart';
-import 'package:portfolio/core/widgets/eleveted_button.dart';
-import 'package:portfolio/cubit/theme/theme_cubit.dart';
-import 'package:portfolio/features/main/data/data.dart';
-import 'package:sizer/sizer.dart';
-
+part of 'home_screen.dart';
 class HomeDesktop extends StatefulWidget {
   const HomeDesktop({super.key});
 
@@ -131,7 +120,14 @@ class _HomeDesktopState extends State<HomeDesktop> {
                     ),
                     child: CustomElevatedButton(
                       label: "Download CV",
-                      onPressed: () {},
+                      onPressed: () {
+                        html.window.open(
+                          "https://drive.google.com/file/d/"
+                              "1gSsnNc3B8L4vu5tFbWnfnjKSRhf3FUQL/"
+                              "view?usp=drive_link",
+                          "pdf",
+                        );
+                      },
                     ),
                   ),
                 ],
