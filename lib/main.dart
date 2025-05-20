@@ -15,7 +15,7 @@ import 'package:portfolio/features/contacts/presentation/contacts_screen.dart';
 import 'package:portfolio/features/portfolio/presentation/portfolio_screen.dart';
 import 'package:portfolio/features/services_offered/presentation/services_screen.dart';
 import 'package:sizer/sizer.dart';
-import 'package:url_strategy/url_strategy.dart'; 
+import 'package:url_strategy/url_strategy.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -21,7 +21,7 @@ class ProjectCardState extends State<ProjectCard> {
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
-    
+
     final project = widget.project;
 
     return InkWell(
@@ -61,15 +61,14 @@ class ProjectCardState extends State<ProjectCard> {
                   ),
                   SizedBox(height: height * 0.02),
                   Text(
-                   project["titles"],
-                   
+                    project["titles"],
                     textAlign: TextAlign.center,
                   ),
                   SizedBox(height: height * 0.01),
                   Text(
                     project["description"],
                     textAlign: TextAlign.center,
-                   ),
+                  ),
                   SizedBox(height: height * 0.01),
                 ],
               ),
@@ -84,7 +83,7 @@ class ProjectCardState extends State<ProjectCard> {
                   borderRadius: BorderRadius.circular(10),
                   image: DecorationImage(
                     image: AssetImage(
-                     project["banners"],
+                      project["banners"],
                     ),
                     fit: BoxFit.cover,
                   ),
