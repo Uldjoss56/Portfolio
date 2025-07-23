@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/res/responsive.dart';
 import 'package:portfolio/core/theme/theme.dart';
 import 'package:portfolio/core/widgets/custom_blur_container.dart';
@@ -41,16 +42,13 @@ class Footer extends StatelessWidget {
                         ),
                         TextSpan(
                           text: "by uldjoss56",
-                          style: TextStyle(
-                            fontFamily: "Lusitana",
+                          style: GoogleFonts.lusitana (
                             fontWeight: FontWeight.w100,
                           ),
                         ),
                         TextSpan(
                           text: " ❤️",
-                          style: TextStyle(
-                            fontFamily: "Noto Color Emoji",
-                          ),
+                          style: GoogleFonts.notoColorEmoji () ,
                         ),
                       ],
                       style: TextStyle(),

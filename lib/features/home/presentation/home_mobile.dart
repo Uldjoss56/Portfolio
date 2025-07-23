@@ -29,8 +29,7 @@ class _HomeMobileState extends State<HomeMobile> {
               children: [
                 TextSpan(
                   text: "🖐️ ",
-                  style: TextStyle(
-                    fontFamily: "Noto Color Emoji",
+                  style: GoogleFonts.notoColorEmoji(
                     fontSize: 24,
                   ),
                 ),

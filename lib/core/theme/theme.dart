@@ -23,7 +23,6 @@ class CustomAppTheme {
     scaffoldBackgroundColor: myWhiteBackground,
     useMaterial3: true,
     brightness: Brightness.light,
-    fontFamily: 'Poppins',
     textTheme: CustomTextTheme.textThemeLight,
     elevatedButtonTheme:
         CustomElevatedButtonThemeData.elevatedButtonThemeDataLight,
@@ -46,7 +45,6 @@ class CustomAppTheme {
     scaffoldBackgroundColor: myBlueBackground,
     useMaterial3: true,
     brightness: Brightness.dark,
-    fontFamily: 'Poppins',
     textTheme: CustomTextTheme.textThemeDark,
     elevatedButtonTheme:
         CustomElevatedButtonThemeData.elevatedButtonThemeDataDark,

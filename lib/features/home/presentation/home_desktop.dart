@@ -32,8 +32,7 @@ class _HomeDesktopState extends State<HomeDesktop> {
                       children: [
                         TextSpan(
                           text: "🖐️ ",
-                          style: TextStyle(
-                            fontFamily: "Noto Color Emoji",
+                          style: GoogleFonts.notoColorEmoji(
                             fontSize: 24,
                           ),
                         ),
@@ -43,8 +42,7 @@ class _HomeDesktopState extends State<HomeDesktop> {
                         ),
                         TextSpan(
                           text: " 🖐️",
-                          style: TextStyle(
-                            fontFamily: "Noto Color Emoji",
+                          style: GoogleFonts.notoColorEmoji(
                             fontSize: 24,
                           ),
                         ),

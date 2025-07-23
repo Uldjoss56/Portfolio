@@ -13,7 +13,7 @@ import 'package:flutter_localization/flutter_localization.dart';
 import 'package:portfolio/core/theme/theme.dart';
 import 'package:portfolio/features/contacts/presentation/contacts_screen.dart';
 import 'package:portfolio/features/portfolio/presentation/portfolio_screen.dart';
-import 'package:portfolio/features/services_offered/presentation/services_screen.dart';
+import 'package:portfolio/features/services/presentation/services_screen.dart';
 import 'package:sizer/sizer.dart';
 import 'package:url_strategy/url_strategy.dart';
 

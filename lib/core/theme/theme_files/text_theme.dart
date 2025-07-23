@@ -1,66 +1,67 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/core/constants/colors.dart';
 
 class CustomTextTheme {
   CustomTextTheme._();
 
   static final TextTheme textThemeLight = TextTheme(
-    headlineLarge: const TextStyle().copyWith(
+    headlineLarge: GoogleFonts.poppins().copyWith(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
       color: myBlack,
     ),
-    headlineMedium: const TextStyle().copyWith(
+    headlineMedium: GoogleFonts.poppins().copyWith(
       fontSize: 24.0,
       fontWeight: FontWeight.w600,
       color: myBlack,
     ),
-    headlineSmall: const TextStyle().copyWith(
+    headlineSmall: GoogleFonts.poppins().copyWith(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
       color: myBlack,
     ),
-    titleLarge: const TextStyle().copyWith(
+    titleLarge: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
       color: myBlack,
     ),
-    titleMedium: const TextStyle().copyWith(
+    titleMedium: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w500,
       color: myBlack,
     ),
-    titleSmall: const TextStyle().copyWith(
+    titleSmall: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w400,
       color: myBlack,
     ),
-    bodyLarge: const TextStyle().copyWith(
+    bodyLarge: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
       color: myBlack,
     ),
-    bodyMedium: const TextStyle().copyWith(
+    bodyMedium: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.normal,
       color: myBlack,
     ),
-    bodySmall: const TextStyle().copyWith(
+    bodySmall: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
       color: myBlackAA,
     ),
-    labelLarge: const TextStyle().copyWith(
+    labelLarge: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myBlack,
     ),
-    labelMedium: const TextStyle().copyWith(
+    labelMedium: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myBlackAA,
     ),
-    labelSmall: const TextStyle().copyWith(
+    labelSmall: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myBlack55,
@@ -68,62 +69,62 @@ class CustomTextTheme {
   );
 
   static final TextTheme textThemeDark = TextTheme(
-    headlineLarge: const TextStyle().copyWith(
+    headlineLarge: GoogleFonts.poppins().copyWith(
       fontSize: 32.0,
       fontWeight: FontWeight.bold,
       color: myWhite,
     ),
-    headlineMedium: const TextStyle().copyWith(
+    headlineMedium: GoogleFonts.poppins().copyWith(
       fontSize: 24.0,
       fontWeight: FontWeight.w600,
       color: myWhite,
     ),
-    headlineSmall: const TextStyle().copyWith(
+    headlineSmall: GoogleFonts.poppins().copyWith(
       fontSize: 18.0,
       fontWeight: FontWeight.w600,
       color: myWhite,
     ),
-    titleLarge: const TextStyle().copyWith(
+    titleLarge: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w600,
       color: myWhite,
     ),
-    titleMedium: const TextStyle().copyWith(
+    titleMedium: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w500,
       color: myWhite,
     ),
-    titleSmall: const TextStyle().copyWith(
+    titleSmall: GoogleFonts.poppins().copyWith(
       fontSize: 16.0,
       fontWeight: FontWeight.w400,
       color: myWhite,
     ),
-    bodyLarge: const TextStyle().copyWith(
+    bodyLarge: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
       color: myWhite,
     ),
-    bodyMedium: const TextStyle().copyWith(
+    bodyMedium: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.normal,
       color: myWhite,
     ),
-    bodySmall: const TextStyle().copyWith(
+    bodySmall: GoogleFonts.poppins().copyWith(
       fontSize: 14.0,
       fontWeight: FontWeight.w500,
       color: myWhiteAA,
     ),
-    labelLarge: const TextStyle().copyWith(
+    labelLarge: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myWhite,
     ),
-    labelMedium: const TextStyle().copyWith(
+    labelMedium: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myWhiteAA,
     ),
-    labelSmall: const TextStyle().copyWith(
+    labelSmall: GoogleFonts.poppins().copyWith(
       fontSize: 12.0,
       fontWeight: FontWeight.normal,
       color: myWhite55,

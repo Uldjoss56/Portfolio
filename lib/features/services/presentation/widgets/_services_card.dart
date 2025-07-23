@@ -76,10 +76,9 @@ class _ServiceCardState extends State<_ServiceCard> {
                     final name = data["tool"][index];
                     return Row(
                       children: [
-                        const Text(
+                         Text(
                           '🛠 ',
-                          style: TextStyle(
-                            fontFamily: "Noto Color Emoji",
+                          style: GoogleFonts.notoColorEmoji(
                             fontSize: 20,
                           ),
                         ),
@@ -102,10 +101,9 @@ class _ServiceCardState extends State<_ServiceCard> {
                       final name = data["tool"][index];
                       return Row(
                         children: [
-                          const Text(
+                           Text(
                             '🛠 ',
-                            style: TextStyle(
-                              fontFamily: "Noto Color Emoji",
+                            style: GoogleFonts.notoColorEmoji(
                               fontSize: 20,
                             ),
                           ),

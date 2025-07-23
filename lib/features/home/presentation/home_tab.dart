@@ -38,8 +38,7 @@ class _HomeTabState extends State<HomeTab> {
                     children: [
                       TextSpan(
                         text: "🖐️ ",
-                        style: TextStyle(
-                          fontFamily: "Noto Color Emoji",
+                        style: GoogleFonts.notoColorEmoji(
                           fontSize: 24,
                         ),
                       ),
@@ -49,8 +48,7 @@ class _HomeTabState extends State<HomeTab> {
                       ),
                       TextSpan(
                         text: " 🖐️",
-                        style: TextStyle(
-                          fontFamily: "Noto Color Emoji",
+                        style: GoogleFonts.notoColorEmoji(
                           fontSize: 24,
                         ),
                       ),
